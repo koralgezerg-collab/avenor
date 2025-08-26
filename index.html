@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlantis Craft Reklam</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Minecraft', sans-serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 50px 20px;
+    }
+
+    img {
+      width: 120px;
+      animation: fadeIn 2s ease-in;
+      margin: 10px;
+    }
+
+    /* Woxinabim logosu için özel boyut */
+    #image-container img {
+      width: 450px; /* Daha büyük yaptık abi */
+      animation: fadeIn 2s ease-in;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 30px;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    #ip {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #00ff88;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #image-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="avenor.png" alt="Avenor Logo" />
+  <h1>Atlantis Craft oynayalım mı?</h1>
+
+  <button id="yesBtn">Evet</button>
+  <button id="noBtn">Hayır</button>
+
+  <div id="image-container">
+    <img src="woxinabim.png" alt="Woxinabim Logo" />
+  </div>
+
+  <div id="ip">IP: play.atlantiscraft.com.tr</div>
+
+  <!-- Müzik -->
+  <audio id="bgMusic" src="13-Killoki-Locomotif-46.mp3" loop></audio>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const ipText = document.getElementById("ip");
+    const bgMusic = document.getElementById("bgMusic");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const offsetX = Math.random() * 200 - 100;
+      const offsetY = Math.random() * 200 - 100;
+      noBtn.style.position = "relative";
+      noBtn.style.left = offsetX + "px";
+      noBtn.style.top = offsetY + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      ipText.style.display = "block";
+      navigator.clipboard.writeText("play.atlantiscraft.com.tr");
+      alert("IP panoya kopyalandı!");
+      bgMusic.play();
+    });
+  </script>
+</body>
+</html>
